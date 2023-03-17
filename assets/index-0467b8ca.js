@@ -3436,7 +3436,7 @@ const xc = me(bc, [
     ['__scopeId', 'data-v-78356055'],
   ]),
   wc = { name: 'MenuCenter', components: { MenuCenterItem: xc } },
-  Oc = './berries-5c729ba4.png'
+  Oc = './assets/berries-5c729ba4.png'
 const Mc = (e) => (ps('data-v-eff60b22'), (e = e()), _s(), e),
   Ec = { class: 'center' },
   Ic = { class: 'top' },
@@ -3486,8 +3486,8 @@ const Hc = me(Fc, [
     ['__scopeId', 'data-v-b4015a43'],
   ]),
   jc = { name: 'Menu', components: { MenuHeading: Hc, MenuCenter: Bc } },
-  Rc = './rightBubbles-67e6bc97.png',
-  kc = './leftBubbles-54d70c18.png'
+  Rc = './assets/rightBubbles-67e6bc97.png',
+  kc = './assets/leftBubbles-54d70c18.png'
 const Rs = (e) => (ps('data-v-b02644e4'), (e = e()), _s(), e),
   Dc = { class: 'menu' },
   Uc = Rs(() => le('img', { class: 'rightBubbles', src: Rc, alt: 'rightBubbles' }, null, -1)),
