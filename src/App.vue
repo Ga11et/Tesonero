@@ -24,4 +24,12 @@ export default {
     width: 50%;
   }
 }
+@media (max-width: 1450px) {
+  .columns {
+    flex-direction: column-reverse;
+    .item {
+      width: 100%;
+    }
+  }
+}
 </style>

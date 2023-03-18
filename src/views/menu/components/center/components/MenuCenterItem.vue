@@ -1,7 +1,7 @@
 <template>
   <a href="/" class="item">
-    <CenterItemSVG class="svg" :type="$props.type" />
-    <p class="text">{{ $props.text }}</p>
+    <CenterItemSVG class="svg" :type="$props.content.type" />
+    <p class="text">{{ $props.content.text }}</p>
   </a>
 </template>
 <script lang="js">
@@ -10,12 +10,8 @@ import CenterItemSVG from './svgs/CenterItemSVG.vue';
 export default {
     name: "MenuCenterItem",
     props: {
-      type: {
-        type: String,
-        required: true
-      },
-      text: {
-        type: String,
+      content: {
+        type: Object,
         required: true
       }
     },

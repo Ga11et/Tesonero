@@ -1,7 +1,8 @@
 <template>
   <div class="heading">
-    <base-divider />
-    <h1 class="text">{{ heading }}</h1>
+    <base-divider :class="{ mobile: $props.level !== 2 }" />
+    <h2 class="text" v-if="$props.level === 2">{{ heading }}</h2>
+    <h1 class="text" v-else>{{ heading }}</h1>
   </div>
 </template>
 <script lang="js">
@@ -11,7 +12,8 @@ export default {
     heading: {
       type: String,
       required: true
-    }
+    },
+    level: Number
   }
 }
 </script>
@@ -32,6 +34,16 @@ export default {
     font-weight: inherit;
     color: inherit;
     text-align: inherit;
+  }
+}
+@media (max-width: 900px) {
+  .heading {
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0 20px;
+    .mobile {
+      display: none;
+    }
   }
 }
 </style>

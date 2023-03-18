@@ -1,16 +1,17 @@
 <template>
   <div class="review">
-    <img class="image" :src="$props.content.photos.large" alt="review photo" />
+    <img class="image desctop" :src="$props.content.photos.large" alt="review photo" />
+    <img class="image mobile" :src="$props.content.photos.medium" alt="review photo" />
     <div class="content">
       <p class="paragraph">{{ $props.content.text }}</p>
       <p class="author">{{ $props.content.author }}</p>
       <div class="before">
-        <QuotesSVG />
-        <QuotesSVG />
+        <QuotesSVG class="svg" />
+        <QuotesSVG class="svg" />
       </div>
       <div class="after">
-        <QuotesSVG />
-        <QuotesSVG />
+        <QuotesSVG class="svg" />
+        <QuotesSVG class="svg" />
       </div>
     </div>
   </div>
@@ -36,6 +37,9 @@ export default {
   padding-top: 50px;
   .image {
     display: block;
+  }
+  .mobile {
+    display: none;
   }
   .content {
     display: flex;
@@ -66,6 +70,49 @@ export default {
       position: absolute;
       bottom: -10px;
       right: -10px;
+    }
+  }
+}
+@media (max-width: 900px) {
+  .review {
+    box-shadow: 0px 8px 16px rgba(0, 195, 104, 0.24);
+    border-radius: 32px;
+    margin: 80px 20px 20px;
+    position: relative;
+    .image {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    .image.desctop {
+      display: none;
+    }
+    .image.mobile {
+      display: block;
+    }
+    .content {
+      padding: 40px 20px 20px;
+      .paragraph {
+        text-align: center;
+      }
+      .author {
+        text-align: center;
+      }
+      .before,
+      .after {
+        top: -25px;
+        top: -25px;
+        .svg {
+          fill: #e7ebf0;
+        }
+      }
+      .before {
+        left: 15px;
+      }
+      .after {
+        right: 15px;
+      }
     }
   }
 }

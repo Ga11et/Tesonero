@@ -24,4 +24,9 @@ export default {
     transition: 300ms;
   }
 }
+@media (max-width: 900px) {
+  .button {
+    display: none;
+  }
+}
 </style>

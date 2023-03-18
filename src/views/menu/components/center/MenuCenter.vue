@@ -1,38 +1,38 @@
 <template>
   <div class="center">
+    <base-heading class="heading" heading="Lorem ipsum, dolor sit amet consectetur" />
     <div class="top">
-      <MenuCenterItem
-        type="headphones"
-        text="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-      />
-      <MenuCenterItem type="box" text="Lorem ipsum, dolor sit amet consectetur adipisicing elit." />
+      <MenuCenterItem v-for="item in items.slice(0, 2)" :key="item.id" :content="item" />
     </div>
     <div class="middle">
-      <MenuCenterItem
-        type="board"
-        text="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-      />
-      <img class="image" src="./assets/berries.png" alt="berries" />
-      <MenuCenterItem
-        type="pult"
-        text="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-      />
+      <MenuCenterItem v-for="item in items.slice(2, 4)" :key="item.id" :content="item" />
+      <img class="image" :src="berriesIMG" alt="berries" />
     </div>
     <div class="bottom">
-      <MenuCenterItem
-        type="headphones"
-        text="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-      />
-      <MenuCenterItem type="box" text="Lorem ipsum, dolor sit amet consectetur adipisicing elit." />
+      <MenuCenterItem v-for="item in items.slice(4, 6)" :key="item.id" :content="item" />
     </div>
+  </div>
+  <div class="mobile">
+    <img class="image" :src="berriesIMG" alt="berries" />
+    <base-heading class="heading" heading="Lorem ipsum, dolor sit amet consectetur" />
+    <MenuMobile class="swiper" />
   </div>
 </template>
 <script lang="js">
 import MenuCenterItem from './components/MenuCenterItem.vue';
+import MenuMobile from './components/MenuMobile.vue';
 
 export default {
     name: "MenuCenter",
-    components: { MenuCenterItem }
+    computed: {
+      items() {
+        return this.$store.getters.getMenuItems
+      },
+      berriesIMG() {
+        return this.$store.getters.getBerriesIMG
+      }
+    },
+    components: { MenuCenterItem, MenuMobile }
 }
 </script>
 <style lang="scss" scoped>
@@ -67,6 +67,33 @@ export default {
       height: 230px;
       width: 440px;
       z-index: 0;
+    }
+  }
+}
+.mobile {
+  display: none;
+}
+@media (max-width: 900px) {
+  .center {
+    display: none;
+  }
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    .heading {
+      position: relative;
+      top: -100px;
+    }
+    .swiper {
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .mobile {
+    .heading {
+      position: relative;
+      top: -50px;
     }
   }
 }

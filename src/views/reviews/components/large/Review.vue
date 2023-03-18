@@ -1,6 +1,7 @@
 <template>
   <div :class="['review', { reverse: $props.reverse }]">
-    <img class="image" :src="$props.content.photos.medium" alt="review photo" />
+    <img class="image desctop" :src="$props.content.photos.medium" alt="review photo" />
+    <img class="image mobile" :src="$props.content.photos.small" alt="review photo" />
     <div class="content">
       <p class="paragraph">{{ $props.content.text }}</p>
       <p class="author">{{ $props.content.author }}</p>
@@ -27,6 +28,9 @@ export default {
   .image {
     display: block;
   }
+  .mobile {
+    display: none;
+  }
   .content {
     display: flex;
     flex-direction: column;
@@ -49,5 +53,25 @@ export default {
 }
 .review.reverse {
   flex-direction: row-reverse;
+}
+@media (max-width: 900px) {
+  .review {
+    padding-top: 20px;
+    .desctop {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+  .content {
+    padding: 0 20px 0 0;
+  }
+  .review.reverse {
+    .content {
+      padding-left: 20px;
+      padding-right: 0;
+    }
+  }
 }
 </style>

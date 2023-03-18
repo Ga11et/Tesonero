@@ -1,5 +1,5 @@
 <template>
-  <button :class="['item', { active: active === content.id }]" type="button">
+  <button :class="['item', { active: active === content.id }]" type="button" @click="clickHandler">
     {{ content.text }}
   </button>
 </template>
@@ -15,6 +15,11 @@ export default {
   computed: {
     active() {
       return this.$store.getters.getActiveNav
+    }
+  },
+  methods: {
+    clickHandler() {
+      this.$store.commit('setActiveNav', this.$props.content.id)
     }
   },
 }
@@ -39,5 +44,10 @@ export default {
   color: #fff;
   background-color: #00c368;
   box-shadow: 0px 8px 16px rgba(0, 195, 104, 0.4);
+}
+@media (max-width: 900px) {
+  .item {
+    display: none;
+  }
 }
 </style>

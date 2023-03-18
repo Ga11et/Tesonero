@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <LogoSVG />
+    <LogoSVG class="logo" />
     <HeaderNavItem v-for="item in nav" :key="item.id" :content="item" />
   </div>
 </template>
@@ -23,5 +23,17 @@ export default {
   display: flex;
   align-items: center;
   gap: calc(94px - 24px * 2);
+}
+@media (max-width: 1450px) {
+  .nav {
+    gap: 10px;
+  }
+}
+@media (max-width: 900px) {
+  .nav {
+    .logo {
+      width: 200px;
+    }
+  }
 }
 </style>

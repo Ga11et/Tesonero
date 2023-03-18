@@ -20,4 +20,15 @@ export default {
   margin: 0 84px;
   height: 160px;
 }
+@media (max-width: 1450px) {
+  .header {
+    margin: 0 40px;
+  }
+}
+@media (max-width: 900px) {
+  .header {
+    justify-content: center;
+    height: 100px;
+  }
+}
 </style>

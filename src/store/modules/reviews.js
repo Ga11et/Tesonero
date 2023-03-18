@@ -1,6 +1,6 @@
-import LargeReviewImage from './assets/largeReviewPhoto.png'
-import MediumReviewImage from './assets/mediumReviewPhoto.png'
-import SmallReviewImage from './assets/smallReviewPhoto.png'
+import LargeReviewImage from '../assets/reviews/largeReviewPhoto.png'
+import MediumReviewImage from '../assets/reviews/mediumReviewPhoto.png'
+import SmallReviewImage from '../assets/reviews/smallReviewPhoto.png'
 
 export const reviewsSlice = {
   state: {
